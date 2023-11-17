@@ -103,8 +103,8 @@ db: db_dependency):
     return {'access_token': token, 'token_type': 'bearer'}
 
 
-def authenticate_user(username: str, password: str, db: db_dependency) -> Any:
-    user = db.query(Users).filter(Users.username == username).first()
+def authenticate_user(email: str, password: str, db: db_dependency) -> Any:
+    user = db.query(Users).filter(Users.email == email).first()
     if not user:
         return False
     if not bcrypt_context.verify(password, user.hashed_password):

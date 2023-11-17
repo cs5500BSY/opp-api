@@ -14,4 +14,5 @@ def test_check_user_authentication_without_user():
     with pytest.raises(HTTPException) as excinfo:
         check_user_authentication(None)
     assert excinfo.value.status_code == 401
-    assert "Authentication Failed" in str(excinfo.value)
+    assert excinfo.value.detail == "Authentication Failed"
+

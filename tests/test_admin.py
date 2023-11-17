@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from main import app
 from db.database import Base
+from routers.admin import get_db, get_current_user
 from models.models import Users
 import pytest
 
