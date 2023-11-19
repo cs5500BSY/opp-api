@@ -1,4 +1,4 @@
-from db.database import Base
+from ..db.database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Double, TIMESTAMP, JSON, func
 
 
@@ -6,7 +6,7 @@ class Users(Base):
     __tablename__ = 'users'
     __table_args__ = {'extend_existing': True}
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     email = Column(String, unique=True)
     username = Column(String, unique=True)
     first_name = Column(String)
@@ -20,7 +20,7 @@ class Users(Base):
 class Transactions(Base):
     __tablename__ = 'transactions'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     business_id = Column(Integer, ForeignKey("business.id"))
     created_at = Column(TIMESTAMP, default=func.now())
@@ -34,7 +34,7 @@ class Transactions(Base):
 class Pending(Base):
     __tablename__ = 'pending'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     business_id = Column(Integer, ForeignKey("business.id"))
     created_at = Column(TIMESTAMP, default=func.now())
@@ -46,7 +46,7 @@ class Pending(Base):
 class Business(Base):
     __tablename__ = 'business'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
     description = Column(String)
     credit = Column(Double, default=0.0)

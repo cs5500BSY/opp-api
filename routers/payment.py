@@ -8,11 +8,11 @@ from sqlalchemy import cast, Date
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 
-from routers.auth import get_current_user
-from routers.helpers import check_user_authentication
+from .auth import get_current_user
+from .helpers import check_user_authentication
 
-from models.models import Transactions, Users, Business, Pending
-from db.database import SessionLocal
+from ..models.models import Transactions, Users, Business, Pending
+from ..db.database import SessionLocal
 
 router = APIRouter(prefix='/api')
 

@@ -5,9 +5,9 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from pydantic import BaseModel
 from starlette import status
 
-from models.models import Users
+from ..models.models import Users
 from passlib.context import CryptContext
-from db.database import SessionLocal
+from ..db.database import SessionLocal
 from typing import Annotated, Any
 from sqlalchemy.orm import Session
 from jose import jwt, JWTError

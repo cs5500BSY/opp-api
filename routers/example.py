@@ -2,7 +2,7 @@ from fastapi import Path, Query, HTTPException, APIRouter
 from pydantic import BaseModel, Field
 from starlette import status
 
-import models
+from ..models import models
 
 
 router = APIRouter()
