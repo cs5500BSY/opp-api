@@ -2,6 +2,8 @@ This is all document shows all Docker-related commands for team: CS5500BSY
 
 Public-facing URL : http://35.166.135.167
 
+Youtube Video Link: https://youtu.be/qX7ADSByTFg
+
 1. Package requirements:
 pip install -r requirements.txt
 
