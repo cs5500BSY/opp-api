@@ -84,10 +84,11 @@ async def create_transaction(user: user_dependency, db: db_dependency, transacti
     if not business.is_verified:
         raise HTTPException(status_code=403, detail='Business is not verified')
     
-    # TODO validate card number
+    # check fraud
+    if transaction_request.amount < 0 or transaction_request.amount > 2500:
+        raise HTTPException(status_code=400, detail="Fraud Detected!")
 
-    # TODO add locking
-    # When multiple transactions are trying to update the business.credit at the same time, you could run into race conditions where some updates are lost because they are overwritten by others that read the old value before the update was committed.
+    
 
     try:
         # if using credit card
